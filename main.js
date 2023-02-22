@@ -219,6 +219,8 @@ const app ={
                 if(songElement){
                     _this.currentIndex =Number( songElement.dataset.index)
                     _this.loadCurrentSong()
+                    toggleButton.innerText='pause'
+                    cdThumbAnimate.play()
                     audio.play()
                     _this.render()
                 }
