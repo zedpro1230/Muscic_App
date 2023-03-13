@@ -52,6 +52,12 @@ const app ={
             singer:'The Chainsmoker',
             img:'./assets/img/song5.jpg',
             path:'./assets/music/song5.mp3'
+        },
+        {
+            name:'Faded',
+            singer:'Alan Walker',
+            img:'./assets/img/song6.jpg',
+            path:'./assets/music/song6.mp4'
         }
        
     ],
@@ -128,24 +134,30 @@ const app ={
             audio.currentTime=seekTime
         }
 
+        // set volume value
+        volumeBar.addEventListener("input",function(){
+            
+            audio.volume=volumeBar.value
+        })
+
         // Set muted/unmuted state
         volumeBtn.onclick=function(){
             if(audioButton.innerText=='volume_up')
             {
                 audioButton.innerText='volume_off'
+               
                 audio.muted= true
             }
             else if(audioButton.innerText=='volume_off')
             {
                 audioButton.innerText='volume_up'
+                
                 audio.muted= false
                 
             }
         }
 
-        volumeBar.addEventListener("input",function(){
-            audio.volume=volumeBar.value
-        })
+        
 
         // Click to the next song
 
@@ -264,7 +276,7 @@ const app ={
         let newIndex
         do{
             newIndex = Math.floor(Math.random()* this.songs.length)
-            console.log(newIndex)
+            
         }
         while(newIndex === this.currentIndex )
             this.currentIndex = newIndex
